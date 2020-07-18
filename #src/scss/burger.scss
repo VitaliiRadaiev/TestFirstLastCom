@@ -1,0 +1,38 @@
+.burger-wrap {
+	margin-left: 25px;
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+
+	& .burger {
+		width: 42px;
+		height: 36px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		cursor: pointer;
+	}
+
+	& .burger span {
+		width: 20px;
+		height: 1px;
+		display: block;
+		background: rgba(40, 40, 40, 0.57);
+		position: absolute;
+		transition: all 0.2s;
+	}
+
+	& .burger span:nth-child(1) {
+		top:11px;
+		right: 10px;
+	}
+
+	& .burger span:nth-child(2) {
+		bottom:11px;
+		right: 10px;
+	}
+
+}

@@ -1,0 +1,13 @@
+@include font("Schnyder_L_Demi", "Schnyder_X_Cond_L_Demi", "400", "normal");
+@include font("TTTravels", "TTTravels-Bold", "700", "normal");
+@include font("TTTravels", "TTTravels-Light", "300", "normal");
+@include font("TTTravels", "TTTravels-Regular", "400", "normal");
+
+
+@font-face {
+  font-family: "Schnyder_XL_Demi";
+  font-display: swap;
+  src: url("../fonts/Schnyder_X_Cond_XL_Demi.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}

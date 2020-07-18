@@ -1,0 +1,406 @@
+@mixin font($font_name, $file_name, $weight, $style) { 
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+// ==== ШРИФТЫ ===========================================================================================
+@import "fonts";
+// ==== // ШРИФТЫ ===========================================================================================
+
+// ==== НОРМАЛАЙЗ ===========================================================================================
+@import "normalize";
+// ==== // НОРМАЛАЙЗ ===========================================================================================
+
+// ==== ПЕРЕМЕННЫЕ ===========================================================================================
+@import "vars"; 
+// ==== // ПЕРЕМЕННЫЕ ===========================================================================================
+
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+// ==== ГЛОБАЛЬНЫЕ СВОЙСТВА ===========================================================================================
+@import "global";
+// ==== ГЛОБАЛЬНЫЕ СВОЙСТВА ===========================================================================================
+
+//<FANCYBOX>===============================================================================================
+@import "fancybox.scss";
+//<FANCYBOX>===============================================================================================
+
+// ==== ПЛАГИНЫ ===========================================================================================
+@import "slick-slider.scss";
+// ==== // ПЛАГИНЫ ===========================================================================================
+
+
+// ==== БУРГЕР ===========================================================================================
+@import "burger";
+// ==== БУРГЕР ===========================================================================================
+
+// ==== НАЧАЛЬНЫЕ САТИЛИ ФОРМЫ ===========================================================================================
+@import "forms";
+// ==== НАЧАЛЬНЫЕ САТИЛИ ФОРМЫ ===========================================================================================
+
+
+
+
+// ==== HEADER =====================================================
+.header {
+	position: relative;
+	z-index: 300;
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		padding: 40px 50px 0;
+		
+
+		@media (max-width: 1023px ) {
+			padding: 40px 33px 0;
+		}
+
+		@media (max-width: $md3+px ) {
+			align-items: center;
+		}
+
+		@media (max-width: $md3+px ) {
+			padding:16px 15px 0;
+		}		
+	}
+	&__logo {}
+	&__menu {
+
+		@media (max-width: $md3+px ) {
+			position: absolute;
+			min-height: 100vh;
+			left: -100%;
+			top: 0;
+			width: 70%;
+			background: rgba(#000, 0.8);
+			transition: all .4s ease;
+			z-index: 100;
+
+			&.open {
+				left: 0;
+			}
+
+		}
+	}
+	&__burger {
+		display: block;
+
+		@media (min-width: 768px ) {
+			display: none;
+		}
+	}
+}
+
+.menu {
+	&_link {
+		color: #000;
+		font-family: "TTTravels";
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 13px;
+		letter-spacing: 0.02em;
+		text-decoration: capitalize;
+		transition: all .2s ease;
+
+		@media (max-width: $md3+px ) {
+			color: #fff;
+			font-size: 18px;
+			line-height: 20px;
+			font-weight: 400;
+
+		}
+
+		@media (min-width: 992px ) {
+			&:hover {
+				color: rgba(#000, 0.6);
+			}
+		}
+	}
+	&__list {
+		text-align: right;
+
+		@media (max-width: $md3+px ) {
+			text-align: left;
+			padding: 70px 10px 10px 15px;
+		}
+	}
+	&__item {
+		margin-bottom: 13px;
+		&::last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// ==== AND HEADER =====================================================
+
+
+// ==== PAGE =====================================================
+.page {
+	text-align: center;
+	&__line {
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 800px;
+		top: 20px;
+
+		@media (max-width: 1136px ) {
+			top: 38px;
+		}
+
+		@media (max-width: $md3+px ) {
+			width: 100%;
+			top: -43px;
+		}
+	}
+}
+
+.line-animation {
+	stroke-dashoffset:2000;
+	stroke-dasharray: 2000;
+	animation: animdash 10s infinite 6s;
+}
+
+@keyframes animdash {
+	to {
+		stroke-dashoffset:0;
+	}
+}
+
+.page-slider-photo {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	max-width: 1050px;
+
+	@media (max-width: 1136px ) {
+		max-width: 750px;
+	}
+
+	@media (max-width: $md2+px ) {
+		max-width: 700px;
+	}
+
+}
+
+.photo-slider {
+	height: 100%;
+	width: 100%;
+	position: relative;
+
+	& .slick-list, & .slick-track{
+		height: 100%
+	}
+	&__item {
+		display: flex;
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+		height: 100%;
+
+		@media (max-width: $md3+px ) {
+			align-items: center;
+			justify-content: center;
+			padding: 0 15px;
+		}
+	}
+	&__left {
+		position: absolute;
+		padding-bottom: 31.52%;
+		width: 100%;
+		max-width: 238px;
+		left: 32px;
+		top: 50%;
+		transform: translateY(-71%) rotate(1.1deg);
+
+		@media (max-width: 1136px ) {
+			max-width: 163px;
+			left: 22px;
+		}
+
+		@media (max-width: $md2+px ) {
+			max-width: 150px;
+		}
+
+		@media (max-width: $md3+px ) {
+			display: none;
+		}
+	}
+	&__center {
+		position: absolute;
+		padding-bottom: 66.86%;
+		width: 100%;
+		max-width: 476px;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%) rotate(1.5deg);
+
+		@media (max-width: 1136px ) {
+			max-width: 359px;
+		}
+
+		@media (max-width: $md2+px ) {
+			max-width: 340px;
+			position: relative;
+			transform: translate(0%, 0%) rotate(1.5deg);
+			top: 0;
+			left: 0;
+			padding-bottom: 90.86%;
+		}
+
+		@media (max-width: $md4+px ) {
+			max-width: 273px;
+			padding-bottom: 102.86%;
+		}
+
+		@media (max-width: 375px ) {
+			max-width: 249px;
+			padding-bottom: 105%;
+		}       
+
+
+	}
+	&__right {
+		position: absolute;
+		padding-bottom: 22.7%;
+		width: 100%;
+		max-width: 345px;
+		top: 50%;
+		transform: translateY(27%) rotate(2.03deg);
+		right: 13px;
+
+		@media (max-width: 1136px ) {
+			max-width: 234px;
+		}
+
+		@media (max-width: $md2+px ) {
+			max-width: 210px;
+		}
+
+		@media (max-width: $md3+px ) {
+			display: none;
+		}
+	}
+}
+
+.page-slider-title {
+	position: absolute;
+	top: 0;
+	transform: translateX(-50%);
+	left: 50%;
+	width: 100%;
+	height: 100%;
+	max-width: 61%;
+	cursor: url('../img/Ellipse.png'),     /* Modern browsers    */
+            url('img/Ellipse.png'),        /* Internet Explorer  */
+            move;
+	
+	@media (max-width: 1440px ) {
+		max-width: 69%;
+	}
+
+    @media (max-width: $md3+px ) {
+    	max-width: 73.5%;
+    }  
+
+    @media (max-width: $md4+px ) {
+    	max-width: 92.5%;
+    }
+
+    @media (max-width: 374px ) {
+    	max-width: 95.5%;
+    }             
+}
+
+.slider-title {
+	height: 100%;
+	width: 100%;
+	& .slick-slider, & .slick-list {
+		overflow: visible;
+	}
+	& .slick-list, & .slick-track{
+		height: 100%
+	}
+
+	&__item {
+		width: 1000px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+
+		&.slick-active {
+
+			& .slider-title__text {
+				color: #580300;
+				text-shadow:none;
+				-webkit-text-fill-color: #580300;
+				-webkit-text-stroke: 0px #580300;
+			}
+		}
+	}
+	&__text {
+		width: 100%;
+		font-family:  "Schnyder_L_Demi";
+		font-size: 125.581px;
+		text-transform: uppercase;
+		text-align: center;;
+		color: white;
+		letter-spacing: 3px;
+		mix-blend-mode: darken;
+		text-shadow:
+		 -1px -1px 0 #580300,  
+		  1px -1px 0 #580300,
+		  -1px 0px 0 #580300,
+		   1px 1px 0 #580300;
+
+		   @supports (-webkit-text-stroke: 1px black) {
+		    	& {
+		       -webkit-text-stroke: 1px #580300;
+		       -webkit-text-fill-color: white;
+		       text-shadow: none;
+		     }
+		   }
+
+		@media (max-width: 1136px ) {
+			font-size: 96px;
+		}
+
+		@media (max-width: $md2+px ) {
+			font-size: 80px;
+		}
+
+		@media (max-width: $md2+px ) {
+			font-size: 48px;
+		}
+
+		@media (max-width: $md4+px ) {
+			font-size: 44px;
+		}  
+
+		@media (max-width: 374px ) {
+			font-size: 34px;
+		}         
+	}
+}
+
+
+// ==== AND PAGE =====================================================
+
+// ==== FOOTER =====================================================
+
+
+// ==== AND FOOTER =====================================================
+
+
+
+
